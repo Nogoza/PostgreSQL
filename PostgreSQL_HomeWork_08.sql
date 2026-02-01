@@ -1,5 +1,4 @@
-/*
-Ödev 8
+/*Ödev 8
 Merhabalar,
 
 test veritabanınızda employee isimli sütun bilgileri id(INTEGER), name VARCHAR(50), birthday DATE, email VARCHAR(100) olan bir tablo oluşturalım.
@@ -11,6 +10,7 @@ Sütunların her birine göre diğer sütunları güncelleyecek 5 adet UPDATE i�
 Sütunların her birine göre ilgili satırı silecek 5 adet DELETE işlemi yapalım.
 
 Kolay Gelsin.*/
+
 
 --test veritabanınızda employee isimli sütun bilgileri id(INTEGER), name VARCHAR(50), birthday DATE, email VARCHAR(100) olan bir tablo oluşturalım.
 
@@ -78,6 +78,7 @@ insert into employee (id, name, birthday, email) values (50, 'Craggy', '2025-01-
 
 
 -- (1) id'ye göre
+
 UPDATE employee
 SET name = 'Mansur',
     birthday = '1972-06-04',
@@ -86,12 +87,14 @@ WHERE id = 20
 RETURNING *;
 
 -- (2) name'e göre
+
 UPDATE employee
 SET email = 'updated_whitaker@company.com'
 WHERE name = 'Whitaker'
 RETURNING *;
 
 -- (3) birthday'e göre
+
 UPDATE employee
 SET name = 'UpdatedName',
     email = 'updated_birthday@company.com'
@@ -99,12 +102,14 @@ WHERE birthday = '2025-12-12'
 RETURNING *;
 
 -- (4) email'e göre
+
 UPDATE employee
 SET birthday = '2000-01-01'
 WHERE email = 'mgebhardt15@live.com'
 RETURNING *;
 
 -- (5) farklı bir id'ye göre
+
 UPDATE employee
 SET name = 'Tarik',
     email = 'tarik.updated@outlook.com'
@@ -114,31 +119,37 @@ RETURNING *;
 --Sütunların her birine göre ilgili satırı silecek 5 adet DELETE işlemi yapalım.
 
 -- (1) id'ye göre
+
 DELETE FROM employee
 WHERE id = 1
 RETURNING *;
 
 -- (2) name'e göre
+
 DELETE FROM employee
 WHERE name = 'Nora'
 RETURNING *;
 
 -- (3) birthday'e göre
+
 DELETE FROM employee
 WHERE birthday = '2025-10-31'
 RETURNING *;
 
 -- (4) email'e göre
+
 DELETE FROM employee
 WHERE email = 'adearsley18@linkedin.com'
 RETURNING *;
 
 -- (5) başka bir id'ye göre
+
 DELETE FROM employee
 WHERE id = 50
 RETURNING *;
 
 
 -- Kontrol
+
 SELECT * FROM employee
 ORDER BY id;
